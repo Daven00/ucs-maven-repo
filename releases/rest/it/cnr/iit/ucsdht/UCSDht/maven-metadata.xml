@@ -3,10 +3,11 @@
   <groupId>it.cnr.iit.ucsdht</groupId>
   <artifactId>UCSDht</artifactId>
   <versioning>
-    <release>1.0.6-rest</release>
+    <release>1.0.7-rest</release>
     <versions>
       <version>1.0.6-rest</version>
+      <version>1.0.7-rest</version>
     </versions>
-    <lastUpdated>20261027120404</lastUpdated>
+    <lastUpdated>20261027132752</lastUpdated>
   </versioning>
 </metadata>

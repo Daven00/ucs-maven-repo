@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 IIT-CNR Licensed under the Apache License, Version 2.0 
+	(the "License"); you may not use this file except in compliance with the 
+	License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.cnr.iit.usagecontrolframework</groupId>
+  <artifactId>UsageControl</artifactId>
+  <version>1.0.7-rest</version>
+  <packaging>pom</packaging>
+  <name>Usage Control :: Aggregate POM</name>
+  <description>Getting Started Usage Control</description>
+  <modules>
+    <module>UCSLibraries</module>
+    <module>ObligationManager</module>
+    <module>PIPReader</module>
+    <module>PIPTime</module>
+    <module>PIPWebSocket</module>
+    <module>PIPDatabase</module>
+    <module>PIPRest</module>
+    <module>PIPMqtt</module>
+    <module>PIPComDex</module>
+    <module>PolicyAdministrationPoint</module>
+    <module>PolicyDecisionPoint</module>
+    <module>SessionManager</module>
+    <module>UCSRest</module>
+    <module>UCSCore</module>
+    <module>PEPDht</module>
+    <module>UCSDht</module>
+    <module>coverage</module>
+  </modules>
+  <distributionManagement>
+    <repository>
+      <id>gitlab-maven-ucs</id>
+      <url>https://sssg-dev.iit.cnr.it/api/v4/projects/7/packages/maven</url>
+    </repository>
+    <snapshotRepository>
+      <id>gitlab-maven-ucs</id>
+      <url>https://sssg-dev.iit.cnr.it/api/v4/projects/7/packages/maven</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <properties>
+    <revision>1.0.7-rest</revision>
+  </properties>
+  <repositories>
+    <repository>
+      <id>ucs-public</id>
+      <url>https://daven00.github.io/ucs-maven-repo/releases/rest/</url>
+    </repository>
+  </repositories>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>flatten.clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+          <followSymLinks>false</followSymLinks>
+          <filesets>
+            <fileset>
+              <directory>${basedir}/apps</directory>
+            </fileset>
+            <fileset>
+              <directory>${basedir}/docker-build</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
