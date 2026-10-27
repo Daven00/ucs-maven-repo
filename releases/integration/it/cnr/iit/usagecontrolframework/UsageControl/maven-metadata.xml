@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>it.cnr.iit.usagecontrolframework</groupId>
+  <artifactId>UsageControl</artifactId>
+  <versioning>
+    <release>0.3.4-integration</release>
+    <versions>
+      <version>0.3.4-integration</version>
+    </versions>
+    <lastUpdated>20261027141908</lastUpdated>
+  </versioning>
+</metadata>
